@@ -169,6 +169,23 @@ class LookingGlass
         }
         return false;
     }
+    
+    /**
+     * Execute a 'openssl' command against given host:
+     * This function displays the current SSL certificate running on a hostname.
+     * 
+     * @param  string $host
+     *   IP/URL to perform command against
+     * @return boolean
+     *   True on success
+     */
+    public function openssl($host)
+    {
+        if ($host = $this->validate($host)) {
+            return $this->procExecute("openssl s_client -connect {$host}:443 < /dev/null", null, null);
+        }
+        return false;
+    }
 
     // ==================================================================
     //
