@@ -86,6 +86,8 @@ function createConfig()
 \$siteName = '${SITE}';
 // Server location
 \$serverLocation = '${LOCATION}';
+// Server host
+\$serverHost = '${PROVIDER}';
 // Test files
 \$testFiles = array();
 EOF
@@ -268,12 +270,14 @@ function setup()
   local IP4=''
   local IP6=''
   local LOC=''
+  local POV=''
   local T=''
   local S=''
 
   # User input
   read -e -p "Enter your website name (Header/Logo) [${SITE}]: " S
   read -e -p "Enter the servers location [${LOCATION}]: " LOC
+  read -e -p "Enter the server profider [${PROVIDER}]: " POV
   read -e -p "Enter the test IPv4 address [${IPV4}]: " IP4
   read -e -p "Enter the test IPv6 address (Re-enter everytime this script is run) [${IPV6}]: " IP6
   read -e -p "Enter the size of test files in MB (Example: 25MB 50MB 100MB) [${TEST[*]}]: " T
