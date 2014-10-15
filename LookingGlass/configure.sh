@@ -73,11 +73,7 @@ function createConfig()
  * @author      Nick Adams <nick89@zoho.com>
  * @copyright   2012 Nick Adams.
  * @link        http://iamtelephone.com
-<<<<<<< HEAD
- * @version     1.1.0
-=======
  * @version     1.2.0
->>>>>>> dev
  */
 
 // IPv4 address
