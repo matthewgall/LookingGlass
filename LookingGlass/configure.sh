@@ -87,7 +87,7 @@ function createConfig()
 // Server location
 \$serverLocation = '${LOCATION}';
 // Server host
-\$serverHost = '${PROVIDER}';
+\$serverProvider = '${PROVIDER}';
 // Test files
 \$testFiles = array();
 EOF
@@ -130,6 +130,8 @@ function config()
         RATELIMIT=("$(echo $f2 | awk -F\' '{print $(NF-1)}')")
       elif [ $f1 = '$serverLocation' ]; then
         LOCATION="$(echo $f2 | awk -F\' '{print $(NF-1)}')"
+      elif [ $f1 = '$serverProvider' ]; then
+        PROVIDER="$(echo $f2 | awk -F\' '{print $(NF-1)}')"
       elif [ $f1 = '$siteName' ]; then
         SITE=("$(echo $f2 | awk -F\' '{print $(NF-1)}')")
       elif [ $f1 = '$testFiles[]' ]; then
@@ -292,6 +294,7 @@ function setup()
   if [[ -n $LOC ]]; then
     LOCATION=$LOC
   fi
+  PROVIDER=$PROVIDER
   if [[ -n $S ]]; then
     SITE=$S
   fi
@@ -456,6 +459,7 @@ DIR="$(cd "$(dirname "$0")" && pwd)"
 IPV4=''
 IPV6=''
 LOCATION=''
+PROVIDER=''
 RATELIMIT=''
 SITE=''
 TEST=()
