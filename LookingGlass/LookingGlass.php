@@ -182,7 +182,7 @@ class LookingGlass
     public function openssl($host)
     {
         if ($host = $this->validate($host)) {
-            return $this->procExecute('openssl s_client -connect ' . $host .':443 < /dev/null', $host, 2);
+            return $this->procExecute('openssl s_client -connect ' . $host .':443 < /dev/null', '', 2);
         }
         return false;
     }
