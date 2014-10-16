@@ -217,22 +217,7 @@ class LookingGlass
     public function abuse($host)
     {
         if ($host = $this->validate($host)) {
-            $host = array_reverse(explode('.', $host));
-            $revHost = "";
-
-            $i = 0;
-            foreach( $host as $value )
-            {
-                $revHost = $revHost . $value;
-                if ( $i != 3 )
-                {
-                    $revHost = $revHost . ".";
-                    $i++;
-                }
-            }
-            $revHost = $revHost . ".abuse-contacts.abusix.org";
-            
-            return str_replace('"', '', $this->procExecute('dig +short -t TXT ', $revHost, 2));
+            return $this->procExecute('querycontacts ', $host, 2));
         }
         return false;
     }
