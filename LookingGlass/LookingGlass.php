@@ -169,7 +169,7 @@ class LookingGlass
         }
         return false;
     }
-    
+
     /**
      * Execute a 'openssl' command against given host:
      * This function displays the current SSL certificate running on a hostname.
@@ -186,6 +186,23 @@ class LookingGlass
         }
         return false;
     }
+
+    /**
+     * Execute a 'whois' command against given host:
+     * This function displays the current WHOIS information for the domain or IP address
+     * 
+     * @param  string $host
+     *   IP/domain to perform command against
+     * @return boolean
+     *   True on success
+     */
+    public function whois($host)
+    {
+        if ($host = $this->validate($host)) {
+            return $this->procExecute('whois', $host, 2);
+        }
+        return false;
+    }    
 
     // ==================================================================
     //
@@ -268,7 +285,7 @@ class LookingGlass
                     if ($lastFail !== 'start'
                         && ($traceCount - 1) === $lastFail
                         &&  $fail >= $failCount
-                    ) {
+                       ) {
                         echo str_pad($str . '<br />-- Traceroute timed out --<br />', 1024, ' ', STR_PAD_RIGHT);
                         break;
                     }
