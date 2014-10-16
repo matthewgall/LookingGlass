@@ -218,8 +218,7 @@ class LookingGlass
     {
         if ($host = $this->validate($host)) {
             $host = array_reverse(explode(".", $host));
-            return $host;
-            //return $this->procExecute('whois', $host, 2);
+            return $this->procExecute('dig +short -t TXT ', $host, 2);
         }
         return false;
     }
