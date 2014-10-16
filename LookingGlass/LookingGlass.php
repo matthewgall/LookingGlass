@@ -217,7 +217,7 @@ class LookingGlass
     public function abuse($host)
     {
         if ($host = $this->validate($host)) {
-            return $this->procExecute('querycontacts ', $host, 2));
+            return $this->procExecute('querycontacts ', $host, 2);
         }
         return false;
     }
