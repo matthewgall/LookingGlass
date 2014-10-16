@@ -204,6 +204,26 @@ class LookingGlass
         return false;
     }    
 
+    /**
+     * Execute a 'abuse' contact lookup command against given host:
+     * 
+     * This function displays the current abuse contact for the domain or IP address
+     * 
+     * @param  string $host
+     *   IP/domain to perform command against
+     * @return boolean
+     *   True on success
+     */
+    public function abuse($host)
+    {
+        if ($host = $this->validate($host)) {
+            $host = array_reverse(explode(".", $host));
+            return $host;
+            //return $this->procExecute('whois', $host, 2);
+        }
+        return false;
+    }
+    
     // ==================================================================
     //
     // Internal functions
