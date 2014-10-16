@@ -232,7 +232,7 @@ class LookingGlass
             }
             $revHost = $revHost . ".abuse-contacts.abusix.org";
             
-            return $this->procExecute('dig +short -t TXT ', $revHost, 2);
+            return str_replace('"', '', $this->procExecute('dig +short -t TXT ', $revHost, 2));
         }
         return false;
     }
