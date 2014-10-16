@@ -108,6 +108,7 @@ require 'LookingGlass/Config.php';
                   <option value="traceroute">traceroute</option>
                   <?php if (!empty($ipv6)) { echo '<option value="traceroute6">traceroute6</option>'; } ?>
                   <option value="openssl">openssl</option>
+                  <option value="whois">whois</option>
                 </select>
                 <button type="submit" id="submit" name="submit" class="btn btn-primary" style="margin-left: 10px;">Run Test</button>
               </fieldset>
