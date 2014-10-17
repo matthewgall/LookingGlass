@@ -101,6 +101,7 @@ require 'LookingGlass/Config.php';
                 </div>
                 <select name="cmd" class="input-medium" style="margin-left: 5px;">
                   <option value="abuse">abuse</option>
+                  <option value="asn">asn</option>
                   <option value="host">host</option>
                   <option value="mtr">mtr</option>
                   <?php if (!empty($ipv6)) { echo '<option value="mtr6">mtr6</option>'; } ?>

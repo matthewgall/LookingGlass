@@ -38,6 +38,42 @@ namespace Telephone;
 class LookingGlass
 {
     /**
+     * Execute a 'abuse' contact lookup command against given host:
+     * 
+     * This function displays the current abuse contact for the domain or IP address
+     * 
+     * @param  string $host
+     *   IP/domain to perform command against
+     * @return boolean
+     *   True on success
+     */
+    public function abuse($host)
+    {
+        if ($host = $this->validate($host)) {
+            return $this->procExecute('querycontacts ', $host, 2);
+        }
+        return false;
+    }
+    
+    /**
+     * Execute a 'asn' contact lookup command against given host:
+     * 
+     * This function displays the current as for the given IP address
+     * 
+     * @param  string $host
+     *   IP/domain to perform command against
+     * @return boolean
+     *   True on success
+     */
+    public function asn($host)
+    {
+        if ($host = $this->validate($host)) {
+            return $this->procExecute('whois -h whois.cymru.com -v ', $host, 2);
+        }
+        return false;
+    }
+    
+    /**
      * Execute a 'host' command against given host:
      * Host is a simple utility for performing DNS lookups
      *
@@ -204,23 +240,6 @@ class LookingGlass
         return false;
     }    
 
-    /**
-     * Execute a 'abuse' contact lookup command against given host:
-     * 
-     * This function displays the current abuse contact for the domain or IP address
-     * 
-     * @param  string $host
-     *   IP/domain to perform command against
-     * @return boolean
-     *   True on success
-     */
-    public function abuse($host)
-    {
-        if ($host = $this->validate($host)) {
-            return $this->procExecute('querycontacts ', $host, 2);
-        }
-        return false;
-    }
     
     // ==================================================================
     //
